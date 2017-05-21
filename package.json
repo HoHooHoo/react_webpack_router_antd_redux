@@ -1,0 +1,22 @@
+{
+  "name": "react_antd_demo",
+  "version": "1.0.0",
+  "description": "react.js+antd desiger+ webpack+ router+ redux",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react.js"
+  ],
+  "author": "huhao",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.28.1",
+    "less-loader": "^4.0.3",
+    "webpack": "^2.5.1"
+  },
+  "dependencies": {
+    "react": "^15.5.4"
+  }
+}
