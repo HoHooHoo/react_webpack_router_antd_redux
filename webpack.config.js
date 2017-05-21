@@ -1,46 +1,37 @@
-const webpack = require('atool-build/lib/webpack');
+var webpack = require('webpack');
+//var path = require('path');
 
-module.exports = function(webpackConfig, env) {
-  webpackConfig.babel.plugins.push('transform-runtime');
-  
-   webpackConfig.babel.plugins.push(['import', {
-   libraryName: 'antd',
-   style: 'css',
- }]);
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-  // Support hmr
-  if (env === 'development') {
-    webpackConfig.devtool = '#eval';
-    webpackConfig.babel.plugins.push('dva-hmr');
-  } else {
-    webpackConfig.babel.plugins.push('dev-expression');
-  }
+module.exports = {
+  entry: [
+    './src/index.jsx',
+  ],
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react'],
+          plugins: [
+            ['import', [{ libraryName: "antd", style: 'css' }]],
+          ],
+        },
+      },
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.less$/, loader: 'style!css!less' },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
 
-  // Don't extract common.js and common.css
-  webpackConfig.plugins = webpackConfig.plugins.filter(function(plugin) {
-    return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
-  });
-
-  // Support CSS Modules
-  // Parse all less files as css module.
-  webpackConfig.module.loaders.forEach(function(loader, index) {
-    if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.less$') > -1) {
-      loader.include = /node_modules/;
-      loader.test = /\.less$/;
-    }
-    if (loader.test.toString() === '/\\.module\\.less$/') {
-      loader.exclude = /node_modules/;
-      loader.test = /\.less$/;
-    }
-    if (typeof loader.test === 'function' && loader.test.toString().indexOf('\\.css$') > -1) {
-      loader.include = /node_modules/;
-      loader.test = /\.css$/;
-    }
-    if (loader.test.toString() === '/\\.module\\.css$/') {
-      loader.exclude = /node_modules/;
-      loader.test = /\.css$/;
-    }
-  });
-
-  return webpackConfig;
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx']
+  },
+  plugins: [
+   
+  ]
 };
