@@ -1,37 +1,50 @@
-var webpack = require('webpack');
-//var path = require('path');
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  entry: [
-    './src/index.jsx',
-  ],
+  entry: "./src/index.jsx", // string | object | array
+
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, "dist"), // string
+    // 所有输出文件的目标路径
+    // 必须是绝对路径（使用 Node.js 的 path 模块）
+    filename: "bundle.js", // string
+    // 「入口分块(entry chunk)」的文件名模板（出口分块？）
   },
+
   module: {
-    loaders: [
+    // 关于模块配置
+    rules: [
+      // 模块规则（配置 loader、解析器等选项）
       {
-        test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader',
-        query: {
-          presets: ['es2015', 'react'],
-          plugins: [
-            ['import', [{ libraryName: "antd", style: 'css' }]],
-          ],
+        test: /\.jsx?$/,
+        // include: [
+        //   path.resolve(__dirname, "src")
+        // ],
+        loader: "babel-loader",
+        // 应该应用的 loader，它相对上下文解析
+        options: {
+          presets: ["es2015"]
         },
+        // loader 的可选项
       },
-      { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.less$/, loader: 'style!css!less' },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
 
     ],
+
+
   },
+
   resolve: {
-    extensions: ['.js', '.json', '.jsx']
+    // 用于查找模块的目录
+    extensions: [".js", ".json", ".jsx", ".css"],
+    // 使用的扩展名
+
   },
+
   plugins: [
-   
-  ]
-};
+    // ...
+  ],
+  // 附加插件列表
+
+
+
+}
