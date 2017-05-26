@@ -1,22 +1,23 @@
-import React,{Component} from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+//import PropTypes from 'prop-types'
 
-import style from '../style/style.css'
+//import style from '../style/style.css'
 
-import { TimePicker,Calendar } from 'antd';
-
-function onPanelChange(value, mode) {
-  console.log(value, mode);
-}
-export default class About extends React.Component{
-    constructor(){
+//import { TimePicker,Calendar } from 'antd'
+export default class About extends React.Component {
+    constructor() {
         super();
+        this.state = {
+
+        }
+
     }
-    render(){
-        return(
-         
-                <Calendar onPanelChange={onPanelChange} />
-          
+    render() {
+        return (
+            <div>
+                <h2>hello about</h2>
+            </div>
+
         );
     }
 }
