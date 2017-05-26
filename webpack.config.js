@@ -2,7 +2,11 @@ var webpack = require('webpack')
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, "index.js"),
+  entry: [
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:3000',
+    path.resolve(__dirname, "index.js"),
+  ],
 
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -27,6 +31,9 @@ module.exports = {
 
     ]
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   }

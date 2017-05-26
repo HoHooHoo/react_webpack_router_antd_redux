@@ -46,7 +46,7 @@ export default class Home extends React.Component{
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
                         <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                            Content
+                            Content2222222222
                         </Content>
                     </Layout>
                 </Layout>
