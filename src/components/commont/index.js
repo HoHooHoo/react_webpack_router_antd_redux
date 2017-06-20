@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-//import { TimePicker,Calendar } from 'antd'
 
 export default class CommontList extends React.Component {
     constructor() {
@@ -27,11 +26,9 @@ export default class CommontList extends React.Component {
 }
 
 CommontList.propTypes = {
-    onMount: PropTypes.func.isRequired,
-    isActive: PropTypes.bool,
+
 }
 
 CommontList.defaultProps = {
-    // onMount: PropTypes.func.isRequired,
-    // isActive: PropTypes.bool,
+
 }

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import MyEditor from './richText/myEditor'
-import ReactEditor from './richText/reactEditor'
-//import style from '../style/style.css'
+import RichTextField from './react-draft-wysiwyg/richTextField'
+import ReactEditor from './reactEditor/reactEditor'
 
-//import { TimePicker,Calendar } from 'antd'
-export default class About extends React.Component {
+export default class Index extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -17,7 +15,7 @@ export default class About extends React.Component {
     render() {
         return (
             <div>
-               <MyEditor content={"23333333333"}/>
+               <RichTextField content={"23333333333"}/>
                <hr/>
                <h3>react富文本编辑器</h3>
                <ReactEditor />

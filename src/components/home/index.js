@@ -5,13 +5,23 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-import SelectMultiple from '../antd_desiger/selectMultiple'
-
 export default class Home extends React.Component{
     constructor(){
         super();
+        this.state={
+            Bread:["Home","list","richText"],
+        }
+    }
+    createBreadcrumb(datas){
+        let doms=[];
+        datas.map((item,index)=>{
+            doms.push( <Breadcrumb.Item key={index+1}>{item}</Breadcrumb.Item>);
+        });
+        return doms;
     }
     render(){
+        const self =this;
+        const { Bread } =this.state;
         return(
                 <Layout>
                     <Sider width={200} style={{ background: '#fff' }}>
@@ -43,12 +53,10 @@ export default class Home extends React.Component{
                     </Sider>
                     <Layout style={{ padding: '0 24px 24px' }}>
                         <Breadcrumb style={{ margin: '12px 0' }}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
+                           {this.createBreadcrumb(Bread)}
                         </Breadcrumb>
                         <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                           <SelectMultiple />
+                           <p>这里是home内容</p>
                         </Content>
                     </Layout>
                 </Layout>
