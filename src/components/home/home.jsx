@@ -5,6 +5,8 @@ import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
+import SelectMultiple from '../antd_desiger/selectMultiple'
+
 export default class Home extends React.Component{
     constructor(){
         super();
@@ -46,7 +48,7 @@ export default class Home extends React.Component{
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
                         <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
-                            Content2222222222
+                           <SelectMultiple />
                         </Content>
                     </Layout>
                 </Layout>
