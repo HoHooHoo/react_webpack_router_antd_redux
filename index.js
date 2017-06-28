@@ -1,12 +1,11 @@
 import React from 'react'
 import ReactDOM,{render} from 'react-dom'
 
-import { Router, browserHistory,hashHistory } from 'react-router'
-import indexRouter from './src/indexRouter'
+import Index from './src/outerMost/index'
 
 
 render(
-  <Router routes={indexRouter} history={hashHistory}/>,
+  <Index/>,
   document.getElementById('root')
 )
 

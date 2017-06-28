@@ -1,25 +1,45 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Route, IndexRoute } from 'react-router'
-
 import {
-    App,
-    Home,
-    AntdDesiger,
-    InputSearch,
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-    RichText,
-    Commont,
-} from './components';
+import OuterMostRouter from './outerMost/router'
 
-module.exports = (
-      <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="/AntdDesiger" component={AntdDesiger} >
-          <Route path="/AntdDesiger/:userName/:repoName" component={InputSearch}/>
-        </Route>
-        <Route path="/RichText" component={RichText} />
-      </Route>
+
+const routes = {
+  path: '/',
+  component: OuterMostRouter,
+  childRoutes: [
+    { path: 'OuterMostRouter', component: OuterMostRouter },
+    /*{ path: 'inbox', component: Inbox },*/
+  ]
+}
+/*
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    sidebar: () => <div>主页!</div>,
+    main: () => <h2>主页</h2>
+  },
+  {
+    path: '/about',
+    sidebar: () => <div>关于我们!</div>,
+    main: () => <h2>关于我们</h2>
+  },
+  {
+    path: '/contact',
+    sidebar: () => <div>联系我们!</div>,
+    main: () => <h2>联系我们</h2>
+  }
+]*/
+
+const BasicExample = () => (
+  <Router routes={routes}/>
+
 )
 
-
+export default BasicExample

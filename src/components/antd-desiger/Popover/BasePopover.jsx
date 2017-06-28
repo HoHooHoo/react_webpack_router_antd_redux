@@ -1,7 +1,7 @@
 import React from 'react'
 import { Popover, Button,Table,Col,Row } from 'antd';
 
-export default class Base extends React.Component{
+export default class BasePopover extends React.Component{
     render(){
 
 const columns=[
