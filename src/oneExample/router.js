@@ -1,5 +1,5 @@
 const OuterMostRouter = {
-  path:'/',
+  path:'oneExample',
   component:require('./index'),
   getComponent(location,cb){
     require.ensure([],(require)=>{

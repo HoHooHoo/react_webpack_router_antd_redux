@@ -3,8 +3,8 @@ var path = require('path');
 
 module.exports = {
   entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:3000',
+    //'webpack/hot/dev-server',
+    //'webpack-dev-server/client?http://localhost:3000',
     path.resolve(__dirname, "index.js"),
   ],
 
@@ -31,9 +31,16 @@ module.exports = {
 
     ]
   },
+  /*
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
+  ],*/
+  plugins: process.env.NODE_ENV === 'production' ? [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin()
+  ] : [],
+
   resolve: {
     extensions: ['.js', '.jsx', '.json']
   }

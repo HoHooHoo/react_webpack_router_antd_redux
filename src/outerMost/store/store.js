@@ -4,8 +4,9 @@ import {
   addTodo,
   toggleTodo,
   setVisibilityFilter,
-  VisibilityFilters
 } from '../actions/actions'
+  
+import {VisibilityFilters } from '../actions/actionTypes'
 
 let store = createStore(todoApp);
 // 打印初始状态
@@ -18,12 +19,12 @@ let unsubscribe = store.subscribe(() =>
 )
 
 // 发起一系列 action
-store.dispatch(addTodo('Learn about actions'));
+ store.dispatch(addTodo('Learn about actions'));
 
-store.dispatch(addTodo('Learn about reducers'));
-store.dispatch(addTodo('Learn about store'));
-store.dispatch(toggleTodo(0));
-store.dispatch(toggleTodo(1));
+// store.dispatch(addTodo('Learn about reducers'));
+// store.dispatch(addTodo('Learn about store'));
+ store.dispatch(toggleTodo(0));
+// store.dispatch(toggleTodo(1));
 /*
 store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
 */

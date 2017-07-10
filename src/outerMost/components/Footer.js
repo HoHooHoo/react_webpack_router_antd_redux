@@ -8,27 +8,32 @@ export default class Footer extends React.Component {
 
     }
   }
+  onClick(filter){
+     this.props.onFilterChange(filter);
+  }
+  //过滤(已完成，正在做，所有)
   renderFilter(filter, name) {
     if (filter === this.props.filter) {
       return name;
     }
     return (
-      <a onClick={e => { e.preventDefault(); this.props.onFilterChange(filter); }}>
+      <a onClick={this.onClick.bind(this,filter)}>
         {name}
       </a>
     )
   }
 
   render() {
+    const self =this;
     return (
       <p>
         Show:
         {' '}
-        {this.renderFilter('SHOW_ALL', 'All')}
+        {self.renderFilter('SHOW_ALL', 'All')}
         {', '}
-        {this.renderFilter('SHOW_COMPLETED', 'Completed')}
+        {self.renderFilter('SHOW_COMPLETED', 'Completed')}
         {', '}
-        {this.renderFilter('SHOW_ACTIVE', 'Active')}
+        {self.renderFilter('SHOW_ACTIVE', 'Active')}
         .
       </p>
     );
