@@ -1,50 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-//import OneExampleRoute from './src/components/OneExample/router'
-//import {NotFound} from './src/share/js'
+import {
+  PicturesWall,
+} from './src/components/antd_desiger'
 
-import Layout from './src/layout/components/app'
-import OneExample from './src/oneExample/containers/app'
-
-const routes = {
-  path: '/',
-  component: Layout,
-  childRoutes: [
-    { path: 'OneExample', component: OneExample },
-    //{ path: 'inbox', component: Inbox },
-  ]
-}
-/*
-const BasicExample = [
-  {
-    path: 'website',
-    onEnter: function (nextState, repalce) {
-      repalce({ nextPathname: nextState.location.pathname }, 'website/home')
-    }
+const RootRoute = [
+  { path: '/',
+    exact: true,
+    main: () =><PicturesWall />
   },
-  {
-    path: 'website/home',
-    component:OneExampleRoute,
-    indexRoute: {
-      component:OneExampleRoute.component,
-    },
-    childRoutes: [
-      OneExampleRoute
-    ],
+  { path: '/about',
+    sidebar: () => <div>关于我们!</div>,
+    main: () => <h2>关于我们</h2>
   },
-  {
-    path:'*',
-    component:NotFound,
+  { path: '/contact',
+    sidebar: () => <div>联系我们!</div>,
+    main: () => <h2>联系我们</h2>
   }
+]
 
 
-
-];*/
-
-export default routes;
+export default RootRoute;
