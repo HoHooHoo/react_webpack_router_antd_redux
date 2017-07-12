@@ -2,18 +2,12 @@ import React from 'react'
 import ReactDOM, { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom'
 
+
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 import RootRoute from './rootRoute'
-
-import Home from './src/components/test/home'
-import Home1 from './src/components/test/home1'
-import Home2 from './src/components/test/home2'
-import About from './src/components/test/about'
-import Contact from './src/components/test/contact'
-
 
 
 
@@ -74,6 +68,8 @@ render(
             </SubMenu>
           </Menu>
         </Sider>
+
+
         <Layout style={{ padding: '0 24px 24px' }}>
           <Breadcrumb style={{ margin: '12px 0' }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>

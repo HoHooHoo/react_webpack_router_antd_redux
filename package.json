@@ -8,9 +8,8 @@
   ],
   "author": "huhao",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:dev": "webpack-dev-server --inline --content-base  dist/ --history-api-fallback",
-    "start:prod": "webpack && node server.js"
+    "build": "webpack",
+    "start": "node ./server/server.js"
   },
   "dependencies": {
     "compression": "^1.6.2",
@@ -39,6 +38,7 @@
     "enzyme": "^2.8.2",
     "file-loader": "^0.11.1",
     "history": "^4.6.3",
+    "lodash": "^4.17.4",
     "mocha": "^3.4.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
@@ -53,6 +53,7 @@
     "style-loader": "^0.18.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.11.0",
     "webpack-dev-server": "^2.4.5"
   },
   "license": "MIT",

@@ -10,17 +10,34 @@ import {
   PicturesWall,
 } from './src/components/antd_desiger'
 
+import SiderHome from './src/layout/siderHome'
+import SiderAbout from './src/layout/siderAbout'
+import SiderContact from './src/layout/siderContact'
+
+
+import Home from './src/components/test/home'
+import Home1 from './src/components/test/home1'
+import Home2 from './src/components/test/home2'
+import About from './src/components/test/about'
+import Contact from './src/components/test/contact'
+
 const RootRoute = [
-  { path: '/',
+  {
+    path: '/',
     exact: true,
-    main: () =><PicturesWall />
+    //sidebar: () => <SiderHome />,
+    main: () => <PicturesWall />
   },
-  { path: '/about',
-    sidebar: () => <div>关于我们!</div>,
+  {
+    path: '/home/home2',
+    main: () => <Home2 />
+  },
+  {
+    path: '/about',
     main: () => <h2>关于我们</h2>
   },
-  { path: '/contact',
-    sidebar: () => <div>联系我们!</div>,
+  {
+    path: '/contact',
     main: () => <h2>联系我们</h2>
   }
 ]
