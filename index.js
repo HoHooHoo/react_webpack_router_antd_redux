@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM, { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch, NavLink } from 'react-router-dom'
-
+import createBrowserHistory from 'history/es/createBrowserHistory'
 
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
+const history = createBrowserHistory();
 
 import RootRoute from './rootRoute'
 
@@ -13,7 +14,7 @@ import RootRoute from './rootRoute'
 
 
 render(
-  <Router>
+  <Router history={history}>
     <Layout>
 
       <Header className="header">

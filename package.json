@@ -8,8 +8,8 @@
   ],
   "author": "huhao",
   "scripts": {
-    "build": "webpack",
-    "start": "node ./server/server.js"
+    "build": "webpack --config webpack.config.dev.js",
+    "start": "node server/server.js"
   },
   "dependencies": {
     "compression": "^1.6.2",
@@ -29,7 +29,9 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
+    "body-parser": "^1.17.2",
     "chai": "^4.0.0",
+    "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.2",
     "draft-convert": "^1.4.6",
     "draft-js": "^0.10.1",
@@ -38,8 +40,10 @@
     "enzyme": "^2.8.2",
     "file-loader": "^0.11.1",
     "history": "^4.6.3",
+    "html-webpack-plugin": "^2.29.0",
     "lodash": "^4.17.4",
     "mocha": "^3.4.2",
+    "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
@@ -54,7 +58,8 @@
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-middleware": "^1.11.0",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.2"
   },
   "license": "MIT",
   "repository": ""

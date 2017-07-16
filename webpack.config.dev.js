@@ -1,5 +1,10 @@
-var webpack = require('webpack')
-var path = require('path');
+//webpack-dev-server --config webpack.config.dev.js
+
+const webpack = require('webpack')
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './index.js',
@@ -10,12 +15,9 @@ module.exports = {
   },
   // devServer: {
   //   hot: true, // 告诉 dev-server 我们在使用 HMR
-  //   contentBase: path.resolve(__dirname, 'dist'),//告诉服务器从哪里提供内容,只有在你想要提供静态文件时才需要
-  //   publicPath: '/',//确定应该从哪里提供 bundle，并且此选项优先
-  //   port: 8080,
-  //   compress: false,// 一切服务都启用gzip 压缩(true)
-  //   lazy: true, //使用惰性加载
-  //   filename: "bundle.js"//使用 filename，可以只在某个文件被请求时编译。在不使用惰性加载时没有效果
+  //   contentBase: path.resolve(__dirname, 'dist'),
+  //   publicPath: '/',
+  //   historyApiFallback: true,
   // },
   module: {
     rules: [
@@ -29,7 +31,8 @@ module.exports = {
           ]
         },
       },
-      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192' },
+      { test: /\.(png|svg|jpg|gif)$/, loader: 'url-loader?limit=8192' },
+      { test: /\.(woff|woff2|eot|ttf|otf)$/, loader: 'file-loader' },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
 
     ]
@@ -40,8 +43,10 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json']
   },
   //报错时显示代码具体位置
-  devtool: "cheap-eval-source-map",
+  devtool: "cheap-module-eval-source-map",
   plugins: [
+    //在每次构建前清理 /dist 文件夹，因此只会生成用到的文件
+    //new CleanWebpackPlugin(['dist']),
     // webpack-dev-server 强化插件 启用 HMR
     new webpack.HotModuleReplacementPlugin(),
 
@@ -54,8 +59,13 @@ module.exports = {
     //   }
     // }),
     // 编译时(compile time)插件
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"',
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env.NODE_ENV': '"production"',
+    // }),
+    //它会用新生成的 index.html 文件，把我们的原来的替换
+    // new HtmlWebpackPlugin({
+    //   title: 'Output Management'
+    // }),
+
   ],
 };
