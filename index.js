@@ -47,7 +47,7 @@ render(
           >
             <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
               <Menu.Item key="1">
-                <Link to="/">Home1</Link>
+                <Link to="/home/home1">Home1</Link>
               </Menu.Item>
               <Menu.Item key="2">
                 <Link to="/home/home2">Home2</Link>

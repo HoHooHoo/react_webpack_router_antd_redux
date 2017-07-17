@@ -23,10 +23,10 @@ import Contact from './src/components/test/contact'
 
 const RootRoute = [
   {
-    path: '/',
+    path: '/home/home1',
     exact: true,
     //sidebar: () => <SiderHome />,
-    main: () => <PicturesWall />
+    main: () => <Home1 />
   },
   {
     path: '/home/home2',

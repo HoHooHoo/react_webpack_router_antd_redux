@@ -1,4 +1,4 @@
-const someDatas = {
+module.exports  = {
   //-----------------
   siderDataHome: [
     {
@@ -71,7 +71,7 @@ const someDatas = {
   //-----------------
 
 }
-
+ 
 
 
 
