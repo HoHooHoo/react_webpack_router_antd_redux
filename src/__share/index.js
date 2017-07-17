@@ -1,2 +1,2 @@
 export  {NotFound} from './components/notFound';
-export  {default as LayoutCustomize } from './components/layout';
+export  {default as LayoutCustomize } from './components/layoutCustomize';
