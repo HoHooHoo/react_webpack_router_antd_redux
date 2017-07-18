@@ -10,9 +10,7 @@ import {
   PicturesWall,
 } from './src/components/antd_desiger'
 
-import SiderHome from './src/layout/siderHome'
-import SiderAbout from './src/layout/siderAbout'
-import SiderContact from './src/layout/siderContact'
+import {LayoutCustomize} from './src/__share'
 
 
 import Home from './src/components/test/home'
@@ -25,7 +23,7 @@ const RootRoute = [
   {
     path: '/home/home1',
     exact: true,
-    //sidebar: () => <SiderHome />,
+
     main: () => <Home1 />
   },
   {

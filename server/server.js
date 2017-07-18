@@ -30,19 +30,12 @@ var server = new WebpackDevServer(webpack(config), {
 
 
 
-//获取home菜单
-app.get('/siderDataHome', function (req, res) {
-  res.send(someDatas.siderDataHome);
+//获取菜单
+app.get('/navUrl', function (req, res) {
+  res.send(someDatas.navUrl);
 })
 
-//获取about菜单
-app.get('/siderDataAbout', function (req, res) {
-  res.send(someDatas.siderDataAbout);
-})
-//获取contact菜单
-app.get('/siderDataContact', function (req, res) {
-  res.send(someDatas.siderDataContact);
-})
+
 
 
 app.get('/*', function (req, res) {

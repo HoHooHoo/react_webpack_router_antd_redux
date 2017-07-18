@@ -18,134 +18,68 @@ export default class Home2 extends React.Component {
                         "789": { "camera": 1, }
                     },
                     "DVR_camera": {
-                        "4561": { "camera": 1, },
-                        "7891": { "camera": 1, }
+                        "4561": { "camera": 5, "dvsOut": 5 },
+                        "7891": { "camera": 1, "dvsOut": 2 }
                     },
                 },
             },
-            statics2: {
-                "123orgID": {
-                    total: 2,
-                    datas: {
-                        "DVR": {
-                            total: 4,
-                            datas: {
-                                "456": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1, "dvsOut": 2
-                                    }
 
-                                },
-                                "789": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                }
-                            },
-
-                        },
-                        "DVR_camera": {
-                            total: 4,
-                            datas: {
-                                "4561": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                },
-                                "7891": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                }
-                            },
-
-                        },
-                    },
-
-                },
-//----------------------
-                "123orgID2": {
-                    total: 4,
-                    datas: {
-                        "DVR2": {
-                            total: 4,
-                            datas: {
-                                "456": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1, "dvsOut": 2
-                                    }
-
-                                },
-                                "789": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                }
-                            },
-
-                        },
-                        "DVR_camera2": {
-                            total: 4,
-                            datas: {
-                                "4561": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                },
-                                "7891": {
-                                    total: 1,
-                                    datas: {
-                                        "camera": 1,
-                                    }
-
-                                }
-                            },
-
-                        },
-                    },
-
-                }
-
-//-----------------------
-            }
 
         }
     }
+    getTotalDatas() {
+
+    }
     deal(statics) {
-        let orgTotal=0;
-        let sourceType=0;
-        let sourceDevice=0;
-        for (let i in statics) { // i 组织机构
-            orgTotal =statics[i].total+orgTotal;
-            for(let a in statics[i].datas){
-                //console.log(statics[i][a]);
-                sourceType=statics[i].datas[a].total+sourceType;
-                for(let b in statics[i].datas[a].datas){
-                    sourceDevice =statics[i].datas[a].datas[b].total+sourceDevice;
-                } 
+        let orgObj = {total:0,datas:{}};
+        let orgDIC={};
+
+        for (let orgid in statics) { //  组织机构
+            let sourceTypeDIC = {};
+            let sourceTypeObj = {total:0,datas:{}};
+            for (let sourceType in statics[orgid]) {//DVR
+                let sourceDeviceIDC = {};
+                let sourceDeviceObj = {total:0,datas:{}};
+                for (let sourceDevice in statics[orgid][sourceType]) {//456
+                    //---
+                    let item = statics[orgid][sourceType][sourceDevice];
+                    let cameraTotal = item.camera ? item.camera :0;
+                    let dvsOutTotal = item.dvsOut ? item.dvsOut :0;
+
+                    let linkDeviceObj = {total:0,datas:{}};
+                    let linkDeviceDIC = {};
+                    for (let linkDevice in statics[orgid][sourceType][sourceDevice]) {
+                        if (linkDeviceDIC[linkDevice] == undefined) {
+                            linkDeviceDIC[linkDevice] = statics[orgid][sourceType][sourceDevice][linkDevice];
+                        }
+
+
+                        linkDeviceObj.total = cameraTotal + dvsOutTotal;
+                        linkDeviceObj.datas = linkDeviceDIC;
+                    }
+                    //--
+                    sourceDeviceIDC[sourceDevice] = linkDeviceObj;
+                    sourceDeviceObj.total = (sourceDeviceIDC[sourceDevice].total+sourceDeviceObj.total);
+                    sourceDeviceObj.datas = sourceDeviceIDC;
+                }
+                sourceTypeDIC[sourceType] = sourceDeviceObj;
+                sourceTypeObj.total = sourceTypeDIC[sourceType].total+ sourceTypeObj.total;
+                sourceTypeObj.datas = sourceTypeDIC;
             }
-        }
-        return "sourceDevice="+sourceDevice;
+            orgDIC[orgid] =sourceTypeObj;
+            orgObj.total = orgDIC[orgid].total +orgObj.total;
+            orgObj.datas = orgDIC;
+        }//组织机构
+        console.log(orgObj.datas["123orgID"].datas["DVR"].datas["456"].datas);
+
     }
     render() {
 
         return (
             <div>
                 Home22222
-                <hr/>
-                {this.deal(this.state.statics2)}
+                <hr />
+                {this.deal(this.state.statics)}
             </div>
 
 
