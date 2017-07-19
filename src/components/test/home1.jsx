@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import {LayoutCustomize} from '../../__share';
+
 
 import { TreeSelect  } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
@@ -43,7 +43,7 @@ export default class Home1 extends React.Component {
                 </TreeNode>
             </TreeSelect>
             <p>23332222</p>
-            <LayoutCustomize />
+          
             </div>
 
 

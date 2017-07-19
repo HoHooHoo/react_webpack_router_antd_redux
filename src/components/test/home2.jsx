@@ -11,6 +11,9 @@ export default class Home2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            orgData:{
+                
+            },
             statics: {
                 "123orgID": { //数字组成的字符串 组织机构
                     "DVR": { //类型

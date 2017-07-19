@@ -2,13 +2,13 @@ module.exports = {
   //-----------------
   navUrl: [
     {
-      navAddress: "/home", navName: "首页", sider: [
+      navAddress: "/", navName: "首页", sider: [
         {
 
           category: "home侧边栏类型1",
           iconType: "user",
           linkInfo: [
-            { address: "/home1", name: "侧边栏第一项", },
+            { address: "/", name: "侧边栏第一项", },
             { address: "/home2", name: "侧边栏第二项", },
             { address: "/home3", name: "侧边栏第三项", },
           ],

@@ -6,11 +6,13 @@ import {
   Link
 } from 'react-router-dom'
 
+import {LayoutCustomize} from './src/__share'
+
 import {
   PicturesWall,
 } from './src/components/antd_desiger'
 
-import {LayoutCustomize} from './src/__share'
+
 
 
 import Home from './src/components/test/home'
@@ -21,13 +23,13 @@ import Contact from './src/components/test/contact'
 
 const RootRoute = [
   {
-    path: '/home/home1',
+    path: '/',
     exact: true,
 
     main: () => <Home1 />
   },
   {
-    path: '/home/home2',
+    path: '/home2',
     main: () => <Home2 />
   },
   {
