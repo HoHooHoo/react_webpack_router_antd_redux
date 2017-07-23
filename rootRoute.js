@@ -29,7 +29,11 @@ const RootRoute = [
     main: () => <Home1 />
   },
   {
-    path: '/home2',
+    path: '/home1/home03',
+    main: () =><div>home3</div>
+  }, 
+  {
+    path: '/home1/home02',
     main: () => <Home2 />
   },
   {
