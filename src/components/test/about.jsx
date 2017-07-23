@@ -10,7 +10,7 @@ export default class About extends React.Component {
 
         }
     }
-    render() {
+    render() { 
         return (
                 <div>
                     about
